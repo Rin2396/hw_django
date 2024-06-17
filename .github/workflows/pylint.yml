@@ -48,15 +48,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r tests/requirements.txt
-    - name: Тесты models
+    - name: Тесты
       run: |
-        chmod +x tests/test.sh
-        ./tests/test.sh tests.test_models
-    - name: Тесты views
-      run: |
-        chmod +x tests/test.sh
-        ./tests/test.sh tests.test_views
-    - name: Тесты api
-      run: |
-        chmod +x tests/test.sh
-        ./tests/test.sh tests.test_api
+        python manage.py test tests
