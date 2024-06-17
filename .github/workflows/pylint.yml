@@ -59,3 +59,7 @@ jobs:
       run: |
         chmod +x tests/test.sh
         ./tests/test.sh tests.test_forms
+    - name: Join tests
+      run: |
+        chmod +x tests/test.sh
+        ./tests/test.sh tests.test_join
