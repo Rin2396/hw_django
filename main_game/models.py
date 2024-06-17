@@ -549,7 +549,7 @@ class Client(UUIDMixin, CreatedMixin, ModifiedMixin):
         return self.user.last_name
 
     def __str__(self) -> str:
-        """String representation of the client.
+        """Represent of the client.
 
         Returns:
             str: string representation
