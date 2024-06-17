@@ -10,7 +10,7 @@ import main_game.models
 
 
 class Migration(migrations.Migration):
-    """Migration class
+    """Migration class.
 
     Args:
         migrations (class): django migration
