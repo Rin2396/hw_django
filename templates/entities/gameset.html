@@ -1,11 +1,17 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>{{ gameset.name }}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>{{ gameset.name }}</h1>
 
-    {% if gameset %}
-    <p>{{ gameset.description }}</p>
-    {% else %}
-      <p>Gameset not found.</p>
-    {% endif %}
+      {% if gameset %}
+        <p>{{ gameset.description }}</p>
+      {% else %}
+        <p>Gameset not found.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
 {% endblock %}

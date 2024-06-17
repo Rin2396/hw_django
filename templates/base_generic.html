@@ -12,7 +12,7 @@
         <li>Hello, <a href="{% url 'profile' %}">{{user.username}}</a>!</li>
         <li><a href="{% url 'clubs' %}">Clubs</a></li>
         <li><a href="{% url 'boardgames' %}">Boardgames</a></li>
-        <li><a href="{% url 'gameset' %}">Gameset</a></li>
+        <li><a href="{% url 'gamesets' %}">Gamesets</a></li>
         <button>
           <span>
             <form id="logoutForm" method="POST" action="{% url 'logout' %}?next={{request.path}}">
