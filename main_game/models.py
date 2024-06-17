@@ -541,7 +541,7 @@ class Client(UUIDMixin, CreatedMixin, ModifiedMixin):
 
     @property
     def last_name(self) -> str:
-        """Property to get the last name of the associated user."
+        """Property to get the last name of the associated user.
 
         Returns:
             str: last name
@@ -549,7 +549,7 @@ class Client(UUIDMixin, CreatedMixin, ModifiedMixin):
         return self.user.last_name
 
     def __str__(self) -> str:
-        """String representation of the client."
+        """String representation of the client.
 
         Returns:
             str: string representation
