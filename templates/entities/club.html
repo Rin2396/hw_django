@@ -1,27 +1,27 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Club page</h1>
+    <h1>Clubs</h1>
 
     {% if club %}
     <ul>
-
-      <li>
-        <a>Name: {{ club.name }}</a><br>
-        <a>Phone_number: {{ club.phone_number }}</a><br>
-      </li>
+        <strong>Name:</strong> {{ club.name }}<br>
+        <strong>Phone Number:</strong> {{ club.phone_number }}<br>
+        <strong>Address:</strong>
+          {% for address in club.addresses.all %}
+            {{ address.region }} {{ address.city }} {{ address.street }} {{ address.home }}
+          {% endfor %}
     </ul>
 
-    {% else %}
-      <p>Club not found..</p>
-    {% endif %}
-
     <div>
-    {% if client_has_club %}
-        You already have in this club!<br>
-    {% else %}
-        You have not joined this one yet!<br>
-        You can <a href="{% url 'join' %}?id={{club.id}}">join it now</a>!
-    {% endif %}
+        {% if client_has_club %}
+            You are already a member of this club!<br>
+        {% else %}
+            You have not joined this club yet!<br>
+            You can <a href="{% url 'join' %}?id={{ club.id }}">join it now</a>!
+        {% endif %}
     </div>
+    {% else %}
+      <p>Club not found.</p>
+    {% endif %}
 {% endblock %}

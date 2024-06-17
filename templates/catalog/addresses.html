@@ -1,12 +1,12 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Addresses: </h1>
+    <h1>Addresses</h1>
 
     {% if addresses_list %}
     <ul>
 
-      {% for boardgame in boardgames_list %}
+      {% for address in addresses_list %}
       <li>
         <a href="{% url 'address'%}?id={{address.id}}">{{ address.region }}</a> 
       </li>

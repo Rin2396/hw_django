@@ -1,17 +1,20 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Boardgame page</h1>
+    <h1>Boardgames</h1>
 
     {% if boardgame %}
     <ul>
-
-      <li>
-        <a>{{ boardgame.name }}</a>
-      </li>
+        <strong>Name:</strong> {{ boardgame.name }}<br>
+        <strong>Genres:</strong>
+        <ul>
+          {% for genre in boardgame.genres.all %}
+            <li>{{ genre.name }}</li>
+          {% endfor %}
+        </ul>
+        <strong>Level:</strong> {{ boardgame.level }}<br>
     </ul>
-
     {% else %}
-      <p>Boardgame not found..</p>
+      <p>Boardgame not found.</p>
     {% endif %}
 {% endblock %}

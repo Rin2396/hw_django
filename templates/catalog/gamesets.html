@@ -8,7 +8,7 @@
 
       {% for gameset in gamesets_list %}
       <li>
-        <a href="{% url 'gameset'%}?id={{gameset.id}}">{{gameset.name}}</a>{{address.description}}
+        <a href="{% url 'gameset'%}?id={{gameset.id}}">{{gameset.name}}</a>{{gameset.description}}
       </li>
       {% endfor %}
     </ul>

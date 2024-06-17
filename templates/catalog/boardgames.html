@@ -8,7 +8,7 @@
 
       {% for boardgame in boardgames_list %}
       <li>
-        <a href="{% url 'boardgame'%}?id={{boardgame.id}}">{{ boardgame.name }}</a> ({{boardgame.level}})
+        <a href="{% url 'boardgame'%}?id={{boardgame.id}}">{{ boardgame.name }}</a>
       </li>
       {% endfor %}
     </ul>
