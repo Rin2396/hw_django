@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Boardgames</h1>
+
+    {% if boardgames_list %}
+    <ul>
+
+      {% for boardgame in boardgames_list %}
+      <li>
+        <a href="{% url 'boardgame'%}?id={{boardgame.id}}">{{ boardgame.name }}</a> ({{boardgame.level}})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no boardgames for now..</p>
+    {% endif %}
+{% endblock %}

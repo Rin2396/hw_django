@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Address page</h1>
+
+    {% if address %}
+    <ul>
+
+      <li>
+        <a>{{ address.name }}</a>
+      </li>
+    </ul>
+
+    {% else %}
+      <p>Address not found..</p>
+    {% endif %}
+{% endblock %}

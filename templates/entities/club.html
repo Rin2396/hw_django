@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Club page</h1>
+
+    {% if club %}
+    <ul>
+
+      <li>
+        <a>Name: {{ club.name }}</a><br>
+        <a>Phone_number: {{ club.phone_number }}</a><br>
+      </li>
+    </ul>
+
+    {% else %}
+      <p>Club not found..</p>
+    {% endif %}
+
+    <div>
+    {% if client_has_club %}
+        You already have in this club!<br>
+    {% else %}
+        You have not joined this one yet!<br>
+        You can <a href="{% url 'join' %}?id={{club.id}}">join it now</a>!
+    {% endif %}
+    </div>
+{% endblock %}

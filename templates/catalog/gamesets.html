@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Gamesets</h1>
+
+    {% if gamesets_list %}
+    <ul>
+
+      {% for gameset in gamesets_list %}
+      <li>
+        <a href="{% url 'gameset'%}?id={{gameset.id}}">{{gameset.name}}</a>{{address.description}}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no gamesets for now..</p>
+    {% endif %}
+{% endblock %}

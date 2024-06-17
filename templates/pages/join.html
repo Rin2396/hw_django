@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h4> You are going to join: {{ club.name }}</h4>
+    {% if client_has_club %}
+        <h5> You already have in this club: <a href="{% url 'profile' %}">profile page</a>.</h5>
+    {% else %}
+        <form action="/join/?id={{ club.id }}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Join it!">
+        </form>
+    {% endif %}
+{% endblock %}

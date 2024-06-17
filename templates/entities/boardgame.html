@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Boardgame page</h1>
+
+    {% if boardgame %}
+    <ul>
+
+      <li>
+        <a>{{ boardgame.name }}</a>
+      </li>
+    </ul>
+
+    {% else %}
+      <p>Boardgame not found..</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Gameset page</h1>
+
+    {% if gameset %}
+    <ul>
+
+      <li>
+        <a>{{ gameset.name }}</a> ({{gameset.description}})
+      </li>
+    </ul>
+
+    {% else %}
+      <p>Gameset not found..</p>
+    {% endif %}
+{% endblock %}

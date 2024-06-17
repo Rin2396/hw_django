@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>BOARDGAME_CLUBS</h1>
+
+  <p>Welcome to <em>BOARDGAME_CLUBS_SITE</em>, join the club and have a fun playing!</p>
+
+<h2>Dynamic content</h2>
+
+  <p>Our site has the following record counts:</p>
+  <ul>
+    <li><strong>Clubs:</strong> {{ clubs }}</li>
+    <li><strong>Boardgames:</strong> {{ boardgames }}</li>
+    <li><strong>Gamesets:</strong> {{ gamesets }}</li>
+  </ul>
+
+{% endblock %}

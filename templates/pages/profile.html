@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if client_data %}
+        <h5>Your profile data:</h5>
+        <ul>
+            {% for key, value in client_data.items %}
+                <li> {{key}}: {{value}} </li>
+            {% endfor %}
+        </ul>
+        {% if client_clubs %}
+            <h4>Your clubs:</h4>
+            <ul>
+                {% for club in client_clubs %}
+                <li>
+                    <a href="{% url 'club' %}?id={{ club.id }}"> {{ club.name }}</a>
+                    <form method="post" action="{% url 'remove_from_joined' club.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Leave</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h4>You have not joined any clubs yet.</h4>
+        {% endif %}
+
+    {% else %}
+        <p>No client data to show..</p>
+    {% endif %}
+
+    <h4>Join a new club:</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Join</button>
+        </form>
+
+        {% if form_errors %}
+            <p style="color: red;">{{ form_errors }}</p>
+    {% else %}
+        <p>No client data to show.</p>
+    {% endif %}
+
+{% endblock %}

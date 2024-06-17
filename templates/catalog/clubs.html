@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Clubs</h1>
+
+    {% if clubs_list %}
+    <ul>
+
+      {% for club in clubs_list %}
+      <li>
+        <a href="{% url 'club'%}?id={{club.id}}">{{ club.name }}</a> {{club.phobe_number}}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no clubs for now..</p>
+    {% endif %}
+{% endblock %}

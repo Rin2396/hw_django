@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Game_site</title>{% endblock %}
+</head>
+
+<body>
+  {% block sidebar %}<!-- insert default navigation text for every page -->
+  <ul class="sidebar-nav">
+      <li><a href="{% url 'homepage' %}">Homepage</a></li>
+      {% if user.is_authenticated %}
+        <li>Hello, <a href="{% url 'profile' %}">{{user.username}}</a>!</li>
+        <li><a href="{% url 'clubs' %}">Clubs</a></li>
+        <li><a href="{% url 'boardgames' %}">Boardgames</a></li>
+        <li><a href="{% url 'gameset' %}">Gameset</a></li>
+        <button>
+          <span>
+            <form id="logoutForm" method="POST" action="{% url 'logout' %}?next={{request.path}}">
+              {% csrf_token %}
+            </form>
+          </span>
+          <a href="#" onclick="document.getElementById('logoutForm').submit();">Log out</a>
+        </button>
+      {% else %}
+        <button>
+          <span>
+            <a href="{% url 'register' %}?next={{request.path}}">Sign up</a>
+          </span>
+        </button>
+        <button>
+          <span>
+            <a href="{% url 'login' %}?next={{request.path}}">Log in</a>
+          </span>
+        </button>
+      {% endif %}
+  </ul>
+  {% block content %}<!-- default content text (typically empty) -->{% endblock %}
+  {% if is_paginated %}
+  <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+  
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+  
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+  {% endif %}
+  {% endblock %}
+</body>
+</html>
