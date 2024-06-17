@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+
 from main_game import models
 
 valid_attrs = {

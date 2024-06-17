@@ -1,5 +1,6 @@
 """Tests for forms."""
 from django.test import TestCase
+
 from main_game.forms import Join, Registration
 from main_game.models import Club
 

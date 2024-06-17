@@ -3,8 +3,9 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.client import Client as DjangoTestClient
-from main_game.models import Client, Club
 from rest_framework import status
+
+from main_game.models import Client, Club
 
 club_attrs = {'name': 'DEF', 'phone_number': '+79098087060'}
 

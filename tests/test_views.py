@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.client import Client
 from django.urls import reverse
-from main_game import models
 from rest_framework import status
+
+from main_game import models
 
 
 def create_successful_page_test(page_url, page_name, template, auth=True):
