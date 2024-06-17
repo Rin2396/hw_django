@@ -15,8 +15,17 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8
         python -m pip install wemake-python-styleguide
-    - name: Lint with flake8
+    - name: Lint game_site with flake8
       run: |
+        cd game_site
+        flake8
+    - name: Lint main_game with flake8
+      run: |
+        cd main_game
+        flake8 
+    - name: Lint tests with flake8
+      run: |
+        cd tests
         flake8 
         
   container-job:
